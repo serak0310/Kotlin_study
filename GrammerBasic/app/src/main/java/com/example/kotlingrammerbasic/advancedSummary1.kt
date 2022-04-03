@@ -9,11 +9,26 @@ package com.example.kotlingrammerbasic
 // 람다의 기본정의
 // val lamdaName : Type = {argumentList -> codeBody}
 // 선언 람다이름     타입     a와 같은 x값      처리방식
-
-
 val square : (Int) -> (Int) = {number -> number*number}
+val square2 = {number :Int -> number*number}        //타입 추론이 가능함
+
+val nameAge = {name : String, age : Int ->
+    "my name is ${name} , I'm ${age}"
+}
+
+
+//확장함수
+//ex) 스트링 클래스에 기능을 추가할 때
+val pizzaIsGreat : String.() -> String = {
+    this + "Piszza is BEST!!"
+}
 
 
 fun main(){
+    println(square(12))
+    println(nameAge("min", 24))
 
+    val a = "minjoeng said "
+    println(a.pizzaIsGreat())
 }
+
